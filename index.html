@@ -1,0 +1,137 @@
+<html>
+
+<head>
+    <title>implement infinite carousel by pure css</title>
+    <style>
+        :root {
+          --slider-width: 150px;
+          --slider-height: 50px;
+          --slider-border-width: 1px;
+          --corousel-whole-width: calc(-5 * (var(--slider-width) + 2 * var(--slider-border-width)));
+          --animation-duration: 20s;
+        }
+        .container {
+            width: var(--slider-width);
+            height: var(--slider-height);
+            overflow:hidden;
+            border: 1px solid balck;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .panel1 {
+            position: absolute;
+            left: 0;
+            display: flex;
+            animation: an1 var(--animation-duration) infinite;
+        }
+        .panel2 {
+            position: absolute;
+            left: var(--corousel-whole-width);
+            display: flex;
+            animation: an2 var(--animation-duration) infinite;
+        }
+
+        .slider {
+            flex: var(--slider-width) 0 0;
+            height: var(--slider-height);
+            background: gray;
+            border: var(--slider-border-width) solid lime;
+        }
+
+        @keyframes an1 {
+            0% {
+                left: 0;
+            }
+            10% {
+                left: calc(-1 * var(--slider-width) - 2 * (var(--slider-border-width)));
+            }            20% {
+                left: calc(-2 * var(--slider-width) - 4 * (var(--slider-border-width)));
+            }            30% {
+                left: calc(-3 * var(--slider-width) - 6 * (var(--slider-border-width)));
+            }            40% {
+                left: calc(-4 * var(--slider-width) - 8 * (var(--slider-border-width)));
+            }
+
+            50% {
+                left: var(--corousel-whole-width);
+                top:0;
+            }
+
+            75% {
+                left: var(--corousel-whole-width);
+                top: var(--slider-height);
+            }
+            
+            83% {
+                left: var(--slider-width);
+                top: var(--slider-height);
+            }
+
+            90% {
+                left: var(--slider-width);
+                top: 0;
+            }
+            
+            100% {
+                top:0;
+                left: 0;
+            }
+        }
+        @keyframes an2 {
+            0% {
+                left: var(--corousel-whole-width);
+            }
+            25% {
+                left: var(--corousel-whole-width);
+                top:var(--slider-height);
+            }
+            33% {
+                left: var(--slider-width);
+                top:var(--slider-height);
+            }
+            40% {
+                left: var(--slider-width);
+                top:0;
+            }
+            50% {
+                left: 0;
+                top: 0;
+            }
+            60% {
+                left: calc(-1 * var(--slider-width) - 2 * var(--slider-border-width));
+            }            70% {
+                left: calc(-2 * var(--slider-width) - 4 * var(--slider-border-width));
+            }            80% {
+                left: calc(-3 * var(--slider-width) - 6 * var(--slider-border-width));
+            }            90% {
+                left: calc(-4 * var(--slider-width) - 8 * var(--slider-border-width));
+            }
+            100% {
+                left: var(--corousel-whole-width);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="panel1">
+            <div class="slider">1</div>
+            <div class="slider">2</div>
+            <div class="slider">3</div>
+            <div class="slider">4</div>
+            <div class="slider">5</div>
+        </div>
+        <div class="panel2">
+            <div class="slider">1</div>
+            <div class="slider">2</div>
+            <div class="slider">3</div>
+            <div class="slider">4</div>
+            <div class="slider">5</div>
+        </div>
+    </div>
+</body>
+
+</html>
